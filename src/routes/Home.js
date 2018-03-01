@@ -20,7 +20,10 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Link to="/user">Go to User page</Link>
+        <div>
+          <a href="https://www.eventbrite.com/oauth/authorize?response_type=token&client_id=LXV32B3TMWHN5A4WAD">Login</a>
+        </div>
+
         <SearchBox handleEvents={this.handleEvents}/>
         <EventList events={this.state.events}/>
       </div>

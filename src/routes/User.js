@@ -2,13 +2,30 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class User extends Component {
+
+  componentWillReceiveProps(nextProps) {
+    console.log('receiving new props:')
+    console.log(nextProps)
+  }
+
+  componentDidMount() {
+    // this.getEventbriteUser()
+  }
+
+  async getEventbriteUser() {
+    console.log('getting eb user info')
+    var key = '3HY2OXUKFERWQFPJOI54'
+
+    const response = await fetch(`https://www.eventbriteapi.com/v3/users/me/?token=${key}`)
+    const json = await response.json()
+    const data = json
+    console.log(data)
+  }
+
   render() {
     return (
       <div>
-        <Link to="/">Go to Homepage</Link>asdasdasd
-        <a href="https://www.eventbrite.com/oauth/authorize?response_type=token&client_id=LXV32B3TMWHN5A4WAD">authorize app with Eventbrite</a>
-        User page
-        My events
+        <Link to="/logout">Logout</Link>
       </div>
     );
   }
