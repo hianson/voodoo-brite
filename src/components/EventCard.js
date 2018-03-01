@@ -24,13 +24,10 @@ export class EventCard extends React.Component {
 }
 
 const eventCard = {
-  border: '1px solid blue',
+  // border: '1px solid blue',
   listStyleType: 'none',
-  // width: '260px',
   width: '30%',
-  // height: '260px',
-  // display: 'inline-block',
-  margin: '10px'
+  margin: '20px auto 20px auto'
 }
 
 const eventCardContainerStyle = {

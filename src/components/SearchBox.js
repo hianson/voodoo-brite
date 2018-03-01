@@ -16,7 +16,8 @@ const SearchBoxStyle = {
   border: '1px solid black',
   width: '80vw',
   textAlign: 'center',
-  margin: '35% auto 0px auto'
+  // margin: '35% auto 0px auto'
+  margin: 'auto'
 }
 
 export default SearchBox;

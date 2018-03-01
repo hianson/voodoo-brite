@@ -34,19 +34,16 @@ class EventList extends Component {
 
 const eventListContainerStyle = {
   // border: '1px solid black',
-  background: '#f8f8fa',
-  margin: 'auto',
   padding: '5%'
-  // width: '95%',
 }
 
 const eventListStyle = {
-  border: '1px solid black',
+  // border: '1px solid black',
   padding: '0',
   display: 'flex',
   flexDirection: 'row',
-  flexWrap: 'wrap',
-  justifyContent: 'center'
+  flexWrap: 'wrap'
+  // justifyContent: 'flex-start'
 
 }
 

@@ -18,7 +18,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div>
         <SearchBox handleEvents={this.handleEvents}/>
         <EventList events={this.state.events}/>
       </div>
