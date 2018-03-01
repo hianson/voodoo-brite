@@ -1,27 +1,16 @@
 import React, { Component } from 'react';
-import SearchBox from './components/SearchBox';
-import EventList from './components/EventList';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Home from './routes/Home'
+
 
 class App extends Component {
-  constructor() {
-    super()
-
-    this.state = {
-      events: []
-    }
-  }
-
-
-  handleEvents = (events) => {
-    this.setState({ events })
-  }
-
   render() {
     return (
-      <div>
-        <SearchBox handleEvents={this.handleEvents}/>
-        <EventList events={this.state.events}/>
-      </div>
+      <Router>
+        <div>
+          <Route exact path="/" component={Home} />
+        </div>
+      </Router>
     );
   }
 }
