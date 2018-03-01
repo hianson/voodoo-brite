@@ -6,7 +6,11 @@ export class EventCard extends React.Component {
       <li style={eventCard}>
         <div style={eventCardContainerStyle}>
           <div style={imgContainer}>
-            <img style={{maxWidth: '100%'}} src={this.props.evt.logo.original.url} />
+            <img
+              style={{maxWidth: '100%'}}
+              src={this.props.evt.logo.original.url}
+              alt={this.props.evt.name.text}
+            />
           </div>
 
           <div style={detailsContainer}>
@@ -22,14 +26,15 @@ export class EventCard extends React.Component {
 const eventCard = {
   border: '1px solid blue',
   listStyleType: 'none',
-  width: '260px',
-  height: '260px',
-  display: 'inline-block',
+  // width: '260px',
+  width: '30%',
+  // height: '260px',
+  // display: 'inline-block',
   margin: '10px'
 }
 
 const eventCardContainerStyle = {
-  border: '1px solid black'
+  // border: '1px solid black'
 }
 
 const imgContainer = {
@@ -38,9 +43,10 @@ const imgContainer = {
 }
 
 const detailsContainer = {
-  border: '1px solid red',
+  // border: '1px solid red',
   height: '130px',
-  overflow: 'hidden'
+  overflow: 'hidden',
+  background: '#ffffff'
 }
 
 export default EventCard;

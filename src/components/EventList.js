@@ -18,24 +18,36 @@ class EventList extends Component {
     )
   })
   return(
-    <ul>{eventItems}</ul>
+    <ul style={eventListStyle}>{eventItems}</ul>
   )
 }
 
   render() {
     console.log(this.props)
     return (
-      <div style={EventListStyle}>
+      <div style={eventListContainerStyle}>
         {this.renderListItems()}
       </div>
     );
   }
 }
 
-const EventListStyle = {
-  border: '1px solid black',
+const eventListContainerStyle = {
+  // border: '1px solid black',
+  background: '#f8f8fa',
   margin: 'auto',
-  width: '95%',
+  padding: '5%'
+  // width: '95%',
+}
+
+const eventListStyle = {
+  border: '1px solid black',
+  padding: '0',
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  justifyContent: 'center'
+
 }
 
 export default EventList;
