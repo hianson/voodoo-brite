@@ -9,24 +9,24 @@ class EventList extends Component {
   }
 
   renderListItems() {
-  const eventItems = this.props.events.map((evt) => {
+    const eventItems = this.props.events.map((evt) => {
+      return(
+        <EventCard
+          key={evt.id}
+          evt={evt}
+        />
+      )
+    })
     return(
-      <EventCard
-        key={evt.id}
-        evt={evt}
-      />
+      <ul style={eventListStyle}>{eventItems}</ul>
     )
-  })
-  return(
-    <ul style={eventListStyle}>{eventItems}</ul>
-  )
-}
+  }
 
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     return (
       <div style={eventListContainerStyle}>
-        {this.renderListItems()}
+        {this.props.events ? this.renderListItems() : ('No events found.')}
       </div>
     );
   }

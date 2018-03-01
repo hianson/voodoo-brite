@@ -14,10 +14,7 @@ class SearchForm extends Component {
   }
 
   handleChange(event) {
-    var textField = event.target.name, state = {};
-
-    state[textField] = event.target.value
-    this.setState(state)
+    this.setState({[event.target.name]: event.target.value})
   }
 
   handleSubmit(event) {
@@ -26,8 +23,6 @@ class SearchForm extends Component {
   }
 
   async getEventbriteEvents() {
-    console.log(`searching eb events with: ${this.state.keywords}, ${this.state.location}, ${this.state.date}`)
-
     var key = process.env.REACT_APP_EVENTBRITE_KEY
 
     const response = await fetch(`https://www.eventbriteapi.com/v3/events/search/?token=${key}&q=${this.state.keywords}&location.address=${this.state.location}&start_date.keyword=${this.state.date}`)

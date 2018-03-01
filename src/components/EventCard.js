@@ -6,11 +6,12 @@ export class EventCard extends React.Component {
       <li style={eventCard}>
         <div style={eventCardContainerStyle}>
           <div style={imgContainer}>
+          {this.props.evt.logo ?
             <img
               style={{maxWidth: '100%'}}
               src={this.props.evt.logo.original.url}
               alt={this.props.evt.name.text}
-            />
+            /> : null}
           </div>
 
           <div style={detailsContainer}>

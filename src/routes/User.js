@@ -2,15 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class User extends Component {
-
-  componentDidMount() {
-    console.log('getting user info')
-  }
-
   render() {
     return (
       <div>
-        <Link to="/">Go to Homepage</Link>
+        <Link to="/">Go to Homepage</Link>asdasdasd
+        <a href="https://www.eventbrite.com/oauth/authorize?response_type=token&client_id=LXV32B3TMWHN5A4WAD">authorize app with Eventbrite</a>
         User page
         My events
       </div>
