@@ -21,7 +21,7 @@ class Home extends Component {
     return (
       <div>
         <div>
-          <a href="https://www.eventbrite.com/oauth/authorize?response_type=token&client_id=LXV32B3TMWHN5A4WAD">Login</a>
+        {sessionStorage.getItem('ebToken') ? <Link to="/user">Profile</Link> : <a href="https://www.eventbrite.com/oauth/authorize?response_type=token&client_id=LXV32B3TMWHN5A4WAD">Login</a>}
         </div>
 
         <SearchBox handleEvents={this.handleEvents}/>
