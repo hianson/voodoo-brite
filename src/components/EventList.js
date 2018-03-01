@@ -1,17 +1,32 @@
 import React, { Component } from 'react';
+import EventCard from './EventCard';
 
 class EventList extends Component {
   constructor() {
     super();
     this.state = {
-      events: ['heyyy...', ' eventssss']
     }
   }
 
+  renderListItems() {
+  const eventItems = this.props.events.map((evt) => {
+    return(
+      <EventCard
+        key={evt.id}
+        evt={evt}
+      />
+    )
+  })
+  return(
+    <ul>{eventItems}</ul>
+  )
+}
+
   render() {
+    console.log(this.props)
     return (
       <div style={EventListStyle}>
-        {this.state.events}
+        {this.renderListItems()}
       </div>
     );
   }

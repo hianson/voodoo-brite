@@ -6,7 +6,7 @@ class SearchBox extends Component {
     return (
       <div style={SearchBoxStyle}>
         <div>Find events for sponsorship</div>
-        <SearchForm />
+        <SearchForm getEvents={this.getEvents} handleEvents={this.props.handleEvents}/>
       </div>
     );
   }
