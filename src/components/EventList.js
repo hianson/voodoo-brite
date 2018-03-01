@@ -33,7 +33,9 @@ class EventList extends Component {
 }
 
 const EventListStyle = {
-  border: '1px solid black'
+  border: '1px solid black',
+  margin: 'auto',
+  width: '95%',
 }
 
 export default EventList;
