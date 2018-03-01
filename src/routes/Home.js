@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import SearchBox from '../components/SearchBox';
 import EventList from '../components/EventList';
 
@@ -19,6 +20,7 @@ class Home extends Component {
   render() {
     return (
       <div>
+        <Link to="/user">Go to User page</Link>
         <SearchBox handleEvents={this.handleEvents}/>
         <EventList events={this.state.events}/>
       </div>
