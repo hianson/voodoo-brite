@@ -1,24 +1,50 @@
 import React, { Component } from 'react';
+import EventCard from './EventCard';
 
 class EventList extends Component {
   constructor() {
     super();
     this.state = {
-      events: ['heyyy...', ' eventssss']
     }
   }
 
+  renderListItems() {
+    const eventItems = this.props.events.map((evt) => {
+      return(
+        <EventCard
+          key={evt.id}
+          evt={evt}
+        />
+      )
+    })
+    return(
+      <ul style={eventListStyle}>{eventItems}</ul>
+    )
+  }
+
   render() {
+    // console.log(this.props)
     return (
-      <div style={EventListStyle}>
-        {this.state.events}
+      <div style={eventListContainerStyle}>
+        {this.props.events ? this.renderListItems() : ('No events found.')}
       </div>
     );
   }
 }
 
-const EventListStyle = {
-  border: '1px solid black'
+const eventListContainerStyle = {
+  // border: '1px solid black',
+  padding: '5%'
+}
+
+const eventListStyle = {
+  // border: '1px solid black',
+  padding: '0',
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'wrap'
+  // justifyContent: 'flex-start'
+
 }
 
 export default EventList;

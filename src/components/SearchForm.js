@@ -6,18 +6,15 @@ class SearchForm extends Component {
     this.state = {
       keywords: '',
       location: '',
-      date: '0'
+      date: '',
+      events: []
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    var textField = event.target.name
-    var state = {};
-
-    state[textField] = event.target.value
-    this.setState(state)
+    this.setState({[event.target.name]: event.target.value})
   }
 
   handleSubmit(event) {
@@ -25,8 +22,14 @@ class SearchForm extends Component {
     this.getEventbriteEvents();
   }
 
-  getEventbriteEvents() {
-    console.log(`searching eb events with: ${this.state.keywords}, ${this.state.location}, ${this.state.date}`)
+  async getEventbriteEvents() {
+    var key = process.env.REACT_APP_EVENTBRITE_KEY
+
+    const response = await fetch(`https://www.eventbriteapi.com/v3/events/search/?token=${key}&q=${this.state.keywords}&location.address=${this.state.location}&start_date.keyword=${this.state.date}`)
+    const json = await response.json()
+    const data = json.events
+    this.setState({ events: data })
+    this.props.handleEvents(this.state.events)
   }
 
 
@@ -37,13 +40,13 @@ class SearchForm extends Component {
           <input type="text" name="keywords" onChange={this.handleChange} value={this.state.keywords} placeholder="Search events or categories" />
           <input type="text" name="location" onChange={this.handleChange} value={this.state.location} placeholder="City or location"/>
           <select value={this.state.date} name="date" onChange={this.handleChange}>
-            <option value="0">All Dates</option>
-            <option value="1">Today</option>
-            <option value="2">Tomorrow</option>
-            <option value="3">This Week</option>
-            <option value="4">This Weekend</option>
-            <option value="5">Next Week</option>
-            <option value="6">Next Month</option>
+            <option value="">All Dates</option>
+            <option value="today">Today</option>
+            <option value="tomorrow">Tomorrow</option>
+            <option value="this_week">This Week</option>
+            <option value="this_weekend">This Weekend</option>
+            <option value="next_week">Next Week</option>
+            <option value="next_month">Next Month</option>
           </select>
           <input type="submit" value="Search" />
         </form>
